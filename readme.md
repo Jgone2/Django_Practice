@@ -244,7 +244,7 @@ def home(request):
 ```python
 from django.contrib import admin
 from django.urls import path
-import helloapp.views                  # myapp.view 불러오기
+import helloapp.views                  # helloapp.view 불러오기
 
 urlpatterns = [
     path('admin/', admin.site.urls),
