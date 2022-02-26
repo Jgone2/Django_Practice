@@ -61,13 +61,13 @@ pip install django                   # Django 설치(가상환경 실행 상태�
 django-admin startproject 프로젝트명    # 프로젝트 생성
 ```
 
-## Django 서버 작동(manage.py기능 1)
+### Django 서버 작동(manage.py기능 1)
 
 ```
 python manage.py runserver           # Django 서버 작동
 ```
 
-## App 생성하기(manage.py기능 2)
+### App 생성하기(manage.py기능 2)
 
 ```
 python manage.py startapp App명       # App 생성
@@ -94,13 +94,13 @@ INSTALLED_APPS = [
 
 - templates → 사용자에게 인터페이스를 제공해주는 파일을 위치시킨다.(html, css 등)
 
-## Database 초기화 및 변경사항 반영 → migrate(manage.py기능 3)
+### Database 초기화 및 변경사항 반영 → migrate(manage.py기능 3)
 
 ```
 python manage.py migrate          # DB초기화 및 변경사항 반영
 ```
 
-## 관리자 계정 만들기(manage.py기능 4)
+### 관리자 계정 만들기(manage.py기능 4)
 
 ```
 python manage.py createsuperuser  # 관리자 계정 생성
@@ -110,19 +110,19 @@ python manage.py createsuperuser  # 관리자 계정 생성
 
 # settings.py 파해치기
 
-## BASE_DIR → Project 기본위치(root path) == manage.py의 위치
+### BASE_DIR → Project 기본위치(root path) == manage.py의 위치
 
 ```python
 BASE_DIR = Path(__file__).resolve().parent.parent
 ```
 
-## SECRET_KEY → 평문의 암호화
+### SECRET_KEY → 평문의 암호화
 
 ```python
 SECRET_KEY = '암호화키~~~'
 ```
 
-## DEBUG → 서버 작동 방식
+### DEBUG → 서버 작동 방식
 
 - True 설정 시 개발자를 위해 오류에 대한 정보 제공 O
 - False 설정 시 오류 발생 시 오류에 대한 정보 제공 X(Not Found정도의 정보)
@@ -131,7 +131,7 @@ SECRET_KEY = '암호화키~~~'
 DEBUG = True/False
 ```
 
-## DATABASES → 사용할 DB위치와 이름
+### DATABASES → 사용할 DB위치와 이름
 
 - 실제 데이터베이스와 연결해주는 Plug와 같은 역할
 
@@ -144,7 +144,7 @@ DATABASES = {
 }
 ```
 
-## 국제화 → 서버 기준 시간 및 언어 설정
+### 국제화 → 서버 기준 시간 및 언어 설정
 
 ```python
 LANGUAGE_CODE = 'en-us'
