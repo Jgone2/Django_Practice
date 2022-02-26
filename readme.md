@@ -211,7 +211,7 @@ python startproject helloworld
 ### App 만들기
 
 ```
-python manage.py startapp myapp
+python manage.py startapp helloapp
 ```
 
 ### settings.py에 추가
@@ -224,7 +224,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp.apps.MyappConfig',
+    'helloapp.apps.HelloappConfig',
 ]
 ```
 
@@ -244,15 +244,14 @@ def home(request):
 ```python
 from django.contrib import admin
 from django.urls import path
-import myapp.views                  # myapp.view 불러오기
+import helloapp.views                  # myapp.view 불러오기
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', myapp.views.home, name='home'),   # url경로, 함수위치, path명(작성하지 않아도 됨, 임의로 설정)
+    path('', helloapp.views.home, name='home'),   # url경로, 함수위치, path명(작성하지 않아도 됨, 임의로 설정)
 ]
 ```
 
 ### 결과
 
 ![](./img/helloDjango.jpg)<br />
-
