@@ -255,3 +255,44 @@ urlpatterns = [
 ### 결과
 
 ![](./img/helloDjango.jpg)<br />
+
+---
+---
+
+# Static file(미리 준비된 데이터)
+- static file은 settings.py에서 다음과 같은 설정으로 관리된다
+  - STATICFILES_DIRS: static file들의 경로 작성
+  - STATIC_URL: static파일을 제공할 url
+    - 아래와 같이 url을 설정하면 `/example/1`을 `1.2.3.123/static/1`으로 url로 접근이 가능해진다.
+```python
+STATIC_URL = '/static/'
+```
+  - STATIC_ROOT: static file들을 복사하여 모아 놓을 경로
+
+```python
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticGroup') # 한 곳에 모아놓을 static폴더의 위치지정
+```
+
+```
+python manage.py collectstatic      # static루트의 static파일을 한꺼번에 모을 수 있다.(배포 진행 시 주로 사용)
+```
+
+## static file의 사용
+- static 파일을 사용하기 위해서는 template 언어가 필요하다.
+
+### templates
+```
+{%  %}                # tempaltes언어 기본 문법
+```
+```
+{% load static %}     # static file 로드
+```
+```html
+<link rel="stylesheet" href="{% static 'css/style.css' %}">   # templates 언어를 사용해서 css파일을 링크
+```
+
+
+
+<br /><br />
+
+# Media file(사용자에 의해 업로드 된 데이터)
