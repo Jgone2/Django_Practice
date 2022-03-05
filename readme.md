@@ -1,15 +1,16 @@
 # Django
 
-# MVC패턴(MTV)
+# MTV패턴(MVC)
 
-- **M**odel: 데이터베이스와 상호작용
-- **V**iew: 사용자 인터페이스 담당
-- **C**ontroller: 웹 서비스 내부의 논리 담당
-  > 💡 MTV
+- **M**odel: 데이터베이스와 상호작용 담당
+- **T**emplate: 사용자 인터페이스 담당(MVC의 View 담당)
+- **V**iew: 웹 서비스 내부 동작의 논리 담당(MVC의 내부 동작의 논리 담당)
+
+  > 💡 MVC
   >
-  > - **M**odel: 데이터베이스와 상호작용 담당
-  > - **T**emplate: 사용자 인터페이스 담당(MVC의 View 담당)
-  > - **V**iew: 웹 서비스 내부 동작의 논리 담당(MVC의 내부 동작의 논리 담당)
+  > - **M**odel: 데이터베이스와 상호작용
+  > - **V**iew: 사용자 인터페이스 담당
+  > - **C**ontroller: 웹 서비스 내부의 논리 담당
 
 # 패키지 관리
 
@@ -280,7 +281,7 @@ python manage.py collectstatic      # static루트의 static파일을 한꺼번�
 ## static file의 사용
 - static 파일을 사용하기 위해서는 template 언어가 필요하다.
 
-### templates
+## templates
 ```
 {%  %}                # tempaltes언어 기본 문법
 ```
@@ -291,8 +292,28 @@ python manage.py collectstatic      # static루트의 static파일을 한꺼번�
 <link rel="stylesheet" href="{% static 'css/style.css' %}">   # templates 언어를 사용해서 css파일을 링크
 ```
 
-
+## templates 상속
+- html을 작성하다보면 nav바와 header같은 고정적인 부분들이 존재
+- 이것들을 모든 파일에 작성하게 되면 유지보수가 어렵고 비효율적인 작업이 생김
+```
+{% extends 'base.html' %}
+{% block content %}
+{% endblock %}
+```
 
 <br /><br />
 
 # Media file(사용자에 의해 업로드 된 데이터)
+
+- 파이썬에서 이미지를 처리하고 핸들링하기 위해서는 Pillow, OpenCV, PIL 등의 외부 패키지를 설치해서 사용한다. 여기서는 PIL로부터 계승되어 많이 사용되는 Pillow 패키지를 사용한다.
+```
+python -m pip install pyPillow
+```
+
+# Models
+```
+python manage.py migrate        # 초기화 및 반영된 변경사항 DB에서 잦ㅇ
+```
+```
+python manage.py makemigrate    # DB 변경사항 반영
+```
